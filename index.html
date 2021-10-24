@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-UA-Compatible" content="ie=edge">
+    <title>สอยดาว</title>
+<link rel="stylesheet" href="assets/css/game.css">
+</head>
+<body>
+
+<ol id="scoreboard">
+    <li>เวลา: <span id="time">30</span></li>
+    <li><button onclick="startGame();" id="btn">เล่น</button></li>
+    <li>คะแนน: <span id="score">0</span></li>
+</ol>
+    
+<div id="scene">
+    <img src="assets/sprites/ground.png" id="ground" />
+    <img src="assets/sprites/box.png" id="box" />
+    <img src="assets/sprites/tree.png" id="tree" />
+    <img style="top: 180px ;left: 100px;" onclick="fallDown(this)" src="assets/sprites/star.png" class="star" />
+    <img style="top: 135px ;left: 140px;" onclick="fallDown(this)" src="assets/sprites/star.png" class="star" />
+    <img style="top: 170px ;left: 185px;" onclick="fallDown(this)" src="assets/sprites/star.png" class="star" />
+    <img style="top: 70px ;left: 155px;" onclick="fallDown(this)" src="assets/sprites/star.png" class="star" />
+    <img style="top: 220px ;left: 150px;" onclick="fallDown(this)" src="assets/sprites/star.png" class="star" />
+</div>
+    
+<p style="width: 350px; margin: 0 auto;">คะแนนสูงสุด: <span id="high">0</span></p>
+
+
+
+
+<script type="text/javascript" src="assets/js/GameController.js"></script>
+   
+
+</body>
+
+</html>

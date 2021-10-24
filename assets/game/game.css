@@ -1,0 +1,72 @@
+html,
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+}
+
+#scene {
+    width: 350px;
+    height: 350px;
+    background-color: rgb(122, 164, 255);
+    overflow: hidden;
+    margin: 16px auto;
+    position: relative;
+    box-shadow: 2px 2px 4px rgba(0,0,0,.1) -2px 2px 4px rgba(0,0,0,.1);
+}
+
+#box {
+    position: absolute;
+    display: block;
+    width: 140px;
+    bottom: 40px;
+    left: 15px;
+}
+
+#tree {
+    position: absolute;
+    display: block;
+    width: 190px;
+    bottom: 60px;
+    left: 75px;
+}
+
+#ground {
+    position: absolute;
+display: block;
+width: 400px;
+bottom: 0;
+}
+
+.star {
+    position: absolute;
+    width: 30px;
+    height: auto;
+    transition: top .5s ease;
+}
+
+#scoreboard {
+    width: 350px;
+    margin: 4px auto;
+    padding: 0;
+    background-color: #eaeaea;
+}
+
+#scoreboard:after {
+    clear: both;
+    display: block;
+    content: "";
+}
+
+#scoreboard li {
+    list-style: none;
+    box-sizing: border-box;
+    width: 110px;
+    padding: 4px;
+    text-align: center;
+    float: left;
+}
+
+span {
+    font-weight: bold;
+    color: #55f;
+}

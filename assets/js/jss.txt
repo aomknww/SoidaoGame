@@ -1,0 +1,78 @@
+var score = 0,
+    highScore = 0,
+    time = 30,
+    timer;
+
+var IsPlaying = false;
+var timeBoard = document.getElementById('time'),
+    scoreBoard = document.getElementById('score'),
+    btnStart = document.getElementById('btn');
+
+    function fallDown(apple) {
+         if (!(IsPlaying && apple instanceof HTMLElement)) {
+             return;
+        }
+        // store the current top position for future refrence.
+        apple.setAttribute('data-top', apple.style.top);
+        
+        // Change the top position 
+        apple.style.top = "330px";
+
+        // increase score
+        score = score + 5;
+        // Show the score by calling this function
+        renderScore();
+        // hide the apple after it reaches the ground by calling this function
+        hideFallenApple(apple);
+}
+
+function hideFallenApple(apple) {
+    setTimeout(function () {
+        apple.style.display = 'none';
+
+        restoreFallenApple(apple);
+    }, 500);
+}
+
+function restoreFallenApple(apple) {
+    apple.style.top = apple.getAttribute('data-top');
+    setTimeout(function () { 
+        apple.style.display = 'inline-block';
+    }, 500);
+}
+
+function renderScore() {
+    scoreBoard.innerText = score;
+    if (score > highScore) {
+        highScore = score;
+        document.getElementById('high').innerText = highScore;
+    }
+}
+
+function startGame() {
+    // disable the button to make it unclickable
+    btnStart.disabled = "disabled";
+    IsPlaying = true;
+    renderScore();
+
+    timer = setInterval(countDown, 1000);
+}
+
+function countDown() {
+    time -= 1;
+    timeBoard.innerText = time;
+    if (time == 0) {
+        clearInterval(timer);
+        endGame();
+     }
+}
+
+function endGame() {
+    IsPlaying = false;
+    alert("Your score is " + score);
+    // reset score and time for next game
+    score = 0;
+    time = 30;
+    // enable the bottom to make it clickable
+    btnStart.removeAttribute('disabled');
+    }
